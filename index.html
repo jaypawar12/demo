@@ -1,11 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git Hub</title>
 </head>
+
 <body>
     <p>Hello World</p>
+    <script>
+        function digitalClock() {
+            const clockElement = document.createElement("h1");
+            function updatetime() {
+                const now = new Date();
+                console.log(now);
+                const hours = now.getHours().toString();
+                const minutes = now.getMinutes().toString();
+                const seconds = now.getSeconds().toString();
+                const timestring = `${hours} : ${minutes} : ${seconds}`;
+                clockElement.textContent = timestring;
+                document.body.appendChild(clockElement);
+
+            }
+            setInterval(updatetime, 1000);
+        }
+
+        digitalClock();
+
+    </script>
 </body>
+
 </html>
