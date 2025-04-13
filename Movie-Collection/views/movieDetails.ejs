@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= movie.movieName %> - Details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .movie-details-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .movie-card {
+            display: flex;
+            flex-wrap: wrap;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .movie-image {
+            flex: 1;
+            max-width: 500px;
+            overflow: hidden;
+            border-radius: 20px 0 0 20px;
+        }
+
+        .movie-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .movie-image img:hover {
+            transform: scale(1.1);
+        }
+
+        .movie-content {
+            flex: 2;
+            padding: 40px;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .movie-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #f9a825;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .movie-info {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            color: #ffca28;
+        }
+
+        .movie-info i {
+            margin-right: 10px;
+        }
+
+        .movie-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #d1d1d1;
+        }
+
+        .rating {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: #ff7043;
+        }
+
+        .rating i {
+            color: #ff7043;
+        }
+
+        .action-buttons {
+            margin-top: 20px;
+        }
+
+        .btn-primary {
+            background-color: #43a047;
+            color: white;
+            font-size: 1rem;
+            padding: 10px 20px;
+            border: none;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .btn-primary:hover {
+            background-color: #388e3c;
+            transform: translateY(-3px);
+        }
+
+        .btn-danger {
+            background-color: #d32f2f;
+            color: white;
+            font-size: 1rem;
+            padding: 10px 20px;
+            border: none;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            background-color: #b71c1c;
+            transform: translateY(-3px);
+        }
+
+        .btn-back {
+            background-color: #1e88e5;
+            color: white;
+            font-size: 1rem;
+            padding: 10px 20px;
+            border: none;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn-back:hover {
+            background-color: #1565c0;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container movie-details-container">
+        <div class="movie-card">
+            <!-- Left Side: Movie Image -->
+            <div class="movie-image">
+                <img src="../<%= movie.movieImage %>" alt="<%= movie.movieName %>">
+            </div>
+
+            <!-- Right Side: Movie Details -->
+            <div class="movie-content">
+                <h2 class="movie-title">
+                    <%= movie.movieName %>
+                </h2>
+                <div class="movie-info">
+                    <i class="bi bi-cash-coin"></i> ₹<%= movie.ticketPrice %>
+                </div>
+                <div class="movie-info">
+                    <i class="bi bi-film"></i> <%= movie.genre %>
+                </div>
+                <p class="movie-description">
+                    <%= movie.description %>
+                </p>
+                <div class="rating">
+                    Rating : <%= movie.rating %> <i class="bi bi-star-fill"></i>
+                </div>
+                <div class="action-buttons">
+                    <a href="/updateMovie/<%= movie.id %>" class="btn btn-primary">Edit</a>
+                    <a href="/delete/delMovie?id=<%= movie.id %>" class="btn btn-danger">Delete</a>
+                </div>
+                <a href="/" class="btn btn-back">Back To Home Page</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
